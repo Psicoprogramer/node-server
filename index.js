@@ -1,4 +1,5 @@
 const readline = require('readline');
+
 const { crearTarea, listarTareas, eliminarTarea, completarTarea } = require('./tareas');
 
 const rl = readline.createInterface({
@@ -32,6 +33,7 @@ const rl = readline.createInterface({
           break;
   
         case 'completar':
+          listarTareas()
           rl.question('Índice de la tarea a completar: ', (indice) => {
             completarTarea(indice);
             listarTareas();
@@ -40,7 +42,7 @@ const rl = readline.createInterface({
           break;
   
         case 'salir':
-            rl.write('adios nos vemos pronto')
+          rl.write('adios nos vemos pronto')
           rl.close(); 
           break;
   

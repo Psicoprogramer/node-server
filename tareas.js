@@ -1,13 +1,17 @@
+
 const tareas = [];
 
 function crearTarea(titulo, description) {
-    let tarea = {
-        titulo: titulo,
-        description: description,
-        status: false
-    };
-    tareas.push(tarea); 
-    console.log('Tarea creada');
+
+  return  new Promise((resolve)=>{
+        let tarea = {
+            titulo: titulo,
+            description: description,
+            status: false
+        };
+        tareas.push(tarea); 
+        resolve(console.log('Tarea creada'));
+    })
 }
 
 function listarTareas() {
@@ -21,13 +25,22 @@ function listarTareas() {
 }
 
 function eliminarTarea(indice) {
+    if (indice > tareas.length || indice < 1) {
+        console.log('El índice proporcionado no es válido');
+        return;
+    }
     tareas.splice(indice - 1, 1);
+    console.log('Tarea eliminada correctamente');
   }
 
-  function completarTarea(indice) {
+function completarTarea(indice) {
+    if (indice > tareas.length || indice < 1) {
+        console.log('El índice proporcionado no es válido');
+        return;
+    }
     tareas[indice - 1].status = true;
-    console.log('tarea eliminada correctamente')
+    console.log('Tarea completada correctamente');
   }
 
 
-  module.exports = {tareas, crearTarea, listarTareas, eliminarTarea, completarTarea };
+module.exports = {tareas, crearTarea, listarTareas, eliminarTarea, completarTarea };
