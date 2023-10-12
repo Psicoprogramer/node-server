@@ -1,19 +1,12 @@
 const express = require('express');
-const tasks = require('./data')
+const routerApi = require('./router/route');
 const port = 3000
 const app = express();
-app.use(express.json())
 
-app.get('/', (req,res)=>{
-    res.json(tasks)
-})
-
-
-
+routerApi(app);
 
 app.listen(port, () => {
         console.log('Server is running on port ' + port);
-
-    })  
+})  
 
 
