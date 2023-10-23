@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const ProductServices = require('../../services/services')
+const ServicesMiddlewares  = require('../../services/Middlewares')
+const Middlewares = new ServicesMiddlewares();
 const services = new ProductServices()
+
+router.use(Middlewares.handelPost);
+router.use(Middlewares.handelPutOrPath);
 
 router.post('/', async (req,res)=>{ 
     try {

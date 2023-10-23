@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const ProductServices = require('../../services/services')
+const ServicesMiddlewares = require('../../services/Middlewares')
 const services = new ProductServices()
+const Middlewares =new ServicesMiddlewares();
 
+//router.use(Middlewares.handelSendParams);
 router.get('/', async (req,res)  =>{
     const data = await services.find();
     res.json(data)
