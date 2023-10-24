@@ -24,5 +24,25 @@ const tasks = [
         "description": "Finish homework"
     }
 ];
-
-module.exports = tasks;
+const users = [
+    { 
+      "nombre": "Usuario1", 
+      "tipo": "admin", 
+      "email": "usuario1@example.com", 
+      "password": "123456"
+    },
+    { 
+      "nombre": "Usuario2", 
+      "tipo": "user", 
+      "email": "usuario2@example.com", 
+      "password": "random123"
+    },
+    { 
+      "nombre": "Usuario3", 
+      "tipo": "user", 
+      "email": "usuario3@example.com", 
+      "password": "password123"
+    }
+  ];
+  
+module.exports = {tasks, users};
